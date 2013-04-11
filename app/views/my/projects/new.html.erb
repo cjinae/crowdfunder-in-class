@@ -1,0 +1,28 @@
+<h3>this is the new of my/projects</h3>
+
+<%=form_for [:my @project] do |f| %>
+
+<div class= "span6">
+	<% unless f.object.errors.empty? %>
+	<div class= "alert alert-error">
+		<strong>Please fix the following things: </strong><br/>
+		<ul>
+			<% f.object.errors.full_message.each do |msg| %>
+			<% end %>
+		</ul>
+	</div>
+	<%end %>
+
+	<%= f.text_field :title, placeholder: "Title", class: "input-block-level" %>
+	<%= f.text_field :teaser, placeholder: "Teaser", class: "input-block-level" %>
+	<%= f.text_field :description, placeholder: "Project Title", class: "input-block-level" %>
+	<%= f.text_field :goal, placeholder: "Project Title", class: "input-block-level" %>
+
+
+	<div class="form-actions">
+		<%=f.submit 'Create This Project', class: 'btn btn-primary' %>
+	</div>
+
+</div>
+
+<% end %>
